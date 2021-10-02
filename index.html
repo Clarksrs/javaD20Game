@@ -137,6 +137,18 @@ background-color: f3f3f3; /* Grey */
 <!--Js-->
 <script>
 // Initialize Variables
+
+//UI Variables
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// Game Variables
 var playerHealth = 20;
 let playerMaxHealth = 20;
 var playerBerries = 5;
@@ -151,9 +163,16 @@ var playerHealthText = "Player Health = " + "playerHealth"
 var enemyHealthText = "Enemy Health = " + "enemyHealth"
 
 
+
+
 //Functions
 //New Game
 function newGame(){window.alert("Welcome!")}
+
+//About Window
+function aboutWindow(){
+  modal.style.display = "block";
+}
 
 //Roll Dice
 function rollDice(max){var rollResult = 1 + Math.floor(Math.random()*max)}
@@ -216,8 +235,18 @@ function attackMonster(targetEnemy){
 <ul>
   <li style="color:white;font-size:36px;font-family:Luminari">d20 ADVENTURE!</li>
   <li><a id="newGameLink" href="javascript:newGame()">NEW GAME</a></li>
-  <li><a href="#About">ABOUT</a></li>
+  <li><a id="aboutLink" href="javascript:aboutWindow()">ABOUT</a></li>
 </ul>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
 </div>
 
 <!--enemyHUD-->
