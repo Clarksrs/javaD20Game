@@ -143,7 +143,7 @@ background-color: f3f3f3; /* Grey */
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("aboutLink");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -173,6 +173,22 @@ function newGame(){window.alert("Welcome!")}
 function aboutWindow(){
   modal.style.display = "block";
 }
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 
 //Roll Dice
 function rollDice(max){var rollResult = 1 + Math.floor(Math.random()*max)}
@@ -223,7 +239,7 @@ function attackMonster(targetEnemy){
   return rollResult + " " + hitResult + (+attackDamage + +criticaldamage) + " Damage!"
   
   if (enemyHealth <= 0){window.alert("you WIN!!")}
-}    
+} 
 </script>
 
 </head>
@@ -295,4 +311,3 @@ Eat Berry</button>
 
 </body>
 </html>
-}
