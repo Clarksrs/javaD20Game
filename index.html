@@ -188,7 +188,7 @@ var btn = document.getElementById("aboutLink");
 var span = document.getElementsByClassName("close")[0];
 
 // Game Variables
-var rollResult
+var rollResult = 1;
 var playerHealth = 20;
 let playerMaxHealth = 20;
 var playerBerries = 5;
@@ -210,12 +210,8 @@ var enemyHealthText = "Enemy Health = " + "enemyHealth"
 function newGame(){window.alert("Welcome!")}
 
 //About Window
-function aboutWindow(){
-  modal.style.display = "block";
-}
-
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
+function aboutWindow(){
   modal.style.display = "block";
 }
 
@@ -236,7 +232,10 @@ function rollDice(max){rollResult = 1 + Math.floor(Math.random()*max)}
 //Eat Berry
 function eatBerry(){
 	if(playerBerries >= 1){
-    	if(playerHealth <= 19){playerHealth = playerHealth + diceRoll(10);playerBerries=playerBerries-1}
+    	if(playerHealth <= 19){
+            playerHealth = playerHealth + diceRoll(10);
+            playerBerries = playerBerries - 1;
+        }
     	else {}
     }
     else {}
@@ -246,10 +245,10 @@ function attackMonster(targetEnemy){
 
 	var currentEnemy = targetEnemy;
 	    
-	if (currentEnemy="zombieEnemy"){var armorClass=6;}
-	else if (currentEnemy="gnollEnemy"){var armorClass=11}
-	else if (currentEnemy="banditEnemy"){var armorClass=15}
-	else if (currentEnemy="trollEnemy"){var armorClass=13}
+	if (currentEnemy=="zombieEnemy"){var armorClass=6;}
+	else if (currentEnemy=="gnollEnemy"){var armorClass=11}
+	else if (currentEnemy=="banditEnemy"){var armorClass=15}
+	else if (currentEnemy=="trollEnemy"){var armorClass=13}
   
   	var rollResult = rollDice(20);
     
