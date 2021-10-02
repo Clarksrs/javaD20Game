@@ -188,6 +188,7 @@ var btn = document.getElementById("aboutLink");
 var span = document.getElementsByClassName("close")[0];
 
 // Game Variables
+var rollResult
 var playerHealth = 20;
 let playerMaxHealth = 20;
 var playerBerries = 5;
@@ -230,7 +231,7 @@ window.onclick = function(event) {
   }
 
 //Roll Dice
-function rollDice(max){var rollResult = 1 + Math.floor(Math.random()*max)}
+function rollDice(max){rollResult = 1 + Math.floor(Math.random()*max)}
 
 //Eat Berry
 function eatBerry(){
