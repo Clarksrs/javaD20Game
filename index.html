@@ -243,15 +243,21 @@ function eatBerry(){
 //Attack
 function attackMonster(targetEnemy){
 
+    //set current target
 	var currentEnemy = targetEnemy;
 	    
+    //get target Armor Class
 	if (currentEnemy=="zombieEnemy"){var armorClass=6;}
 	else if (currentEnemy=="gnollEnemy"){var armorClass=11}
 	else if (currentEnemy=="banditEnemy"){var armorClass=15}
 	else if (currentEnemy=="trollEnemy"){var armorClass=13}
   
+    //Roll Attack
   	var rollResult = rollDice(20);
     
+    //Determine Result
+
+    //Crit
 	if (rollResult >= 19)
 	{
 	var attackDamage = diceRoll(6);
@@ -262,6 +268,7 @@ function attackMonster(targetEnemy){
   	hitResult="Critical!!! ";
 	}
     
+    //Hit
 	else if (rollResult >= armorClass){	
 	var attackDamage = diceRoll(6);
 	enemyHealth = enemyHealth - attackDamage;
@@ -269,14 +276,17 @@ function attackMonster(targetEnemy){
 		else {}        
     hitResult="Hit! ";
 	}
-    
+
+    //Miss
     else{
 	var attackDamage = 0    
     hitResult="Miss. "
 	}
   
+    //Show Result in Combat Log
   return rollResult + " " + hitResult + (+attackDamage + +criticaldamage) + " Damage!"
   
+  //Check if Enemy is Dead
   if (enemyHealth <= 0){window.alert("you WIN!!")}
 } 
 </script>
@@ -322,15 +332,15 @@ function attackMonster(targetEnemy){
 
 <!--Attack Button-->
 <button onclick="
-				document.getElementById('attackResultText').innerHTML = attackMonster(gnollEnemy);
-				document.getElementById('monsterHealthText').innerHTML = enemyHealth;
+document.getElementById('attackResultText').innerHTML = attackMonster(gnollEnemy);
+document.getElementById('monsterHealthText').innerHTML = enemyHealth;
 ">
 Attack</button>
 
 <!--Berry Button-->
 <button onclick="
-				document.getElementById('attackResultText').innerHTML = eatBerry();
-				document.getElementById('playerHealthText').innerHTML = playerHealthText;
+document.getElementById('attackResultText').innerHTML = eatBerry();
+document.getElementById('playerHealthText').innerHTML = playerHealthText;
 ">
 Eat Berry</button>
 </div>
