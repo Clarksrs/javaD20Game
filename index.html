@@ -322,7 +322,7 @@ function attackMonster(targetEnemy){
 </div>
 
 
-<!--ActionButtons-->
+<!-- ActionButtons -->
 <div id=actionButtons>
 <label for="defenseType">Choose your defense:</label>
 <select name="defenseType" id="defenseType">
@@ -331,9 +331,7 @@ function attackMonster(targetEnemy){
 </select>
 
 <!--Attack Button-->
-<button onclick="
-document.getElementById('attackResultText').innerHTML = attackMonster(gnollEnemy);
-document.getElementById('monsterHealthText').innerHTML = enemyHealth;
+<button onclick="attackMonster(gnollEnemy)"
 ">
 Attack</button>
 
