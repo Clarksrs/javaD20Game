@@ -173,6 +173,9 @@ background-color: f3f3f3; /* Grey */
 </style>
 
 
+
+
+
 <!--Js-->
 <script>
 // Initialize Variables
@@ -194,13 +197,9 @@ let playerMaxHealth = 20;
 var playerBerries = 5;
 var enemyHealth = 20;
 let enemyMaxHealth = 20;
-let gnollAC = 11;
-let zombieAC = 7;
-let banditAC = 15;
-let trollAC = 13;
-var currentEnemy = "gnollEnemy"
-var playerHealthText = "Player Health = " + "playerHealth"
-var enemyHealthText = "Enemy Health = " + "enemyHealth"
+var currentEnemy;
+var playerHealthText = "Player Health = " + "playerHealth";
+var enemyHealthText = "Enemy Health = " + "enemyHealth";
 
 
 
@@ -241,10 +240,10 @@ function eatBerry(){
     else {}
   
 //Attack
-function attackMonster(targetEnemy){
+function attackTarget(targetIndex){
 
     //set current target
-	var currentEnemy = targetEnemy;
+	var enemyIndex = targetIndex;
 	    
     //get target Armor Class
 	if (currentEnemy=="zombieEnemy"){var armorClass=6;}
@@ -293,6 +292,16 @@ function attackMonster(targetEnemy){
 
 </head>
 
+
+
+
+
+
+
+
+
+
+
 <body>
 
 <!--Menu-->
@@ -331,15 +340,10 @@ function attackMonster(targetEnemy){
 </select>
 
 <!--Attack Button-->
-<button onclick="attackMonster(gnollEnemy)"
-">
-Attack</button>
+<button onclick="attackMonster(0)">Attack!</button>
 
 <!--Berry Button-->
-<button onclick="
-document.getElementById('attackResultText').innerHTML = eatBerry();
-document.getElementById('playerHealthText').innerHTML = playerHealthText;
-">
+<button onclick=>
 Eat Berry</button>
 </div>
 
