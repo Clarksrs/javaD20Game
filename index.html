@@ -196,16 +196,18 @@ const Player={
   playerHealth:20,
   playerMaxHealth:20,
   playerInventory: {Berries:5}
-};
+}
+
 const Enemy={
   enemyName:enemyName,
-  enemyHealth:20,
+  enemyyHealth:20,
   enemyMaxHealth:20,
   enemyArmorClass:10,
 }
+
 var rollResult;
-var playerHealthText = "Player Health = " + "playerHealth";
-var enemyHealthText = "Enemy Health = " + "enemyHealth";
+var playerHealthText = "Player Health = " + "Player.playerHealth";
+var enemyHealthText = "Enemy Health = " + "Enemy.enemyHealth";
 
 
 
@@ -216,14 +218,10 @@ function newGame(){window.alert("Welcome!")}
 
 //About Window
 // When the user clicks the button, open the modal 
-function aboutWindow(){
-  modal.style.display = "block";
-}
+function aboutWindow(){modal.style.display = "block"}
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+span.onclick = function() {modal.style.display = "none"}
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -231,6 +229,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 
+//diceRoll
 function rollDice(min, max) {
 return min + Math.floor(Math.random() * (max-min + 1))
 }
@@ -242,65 +241,61 @@ function eatBerry(){
             playerHealth = playerHealth + diceRoll(10);
             playerBerries = playerBerries - 1;
         }
-    	else {}
     }
-    else {}
+  
   
 //Attack
 function attackTarget(targetIndex){
 
 switch (targetIndex) {
-  case '1':
-  enemyActor.ArmorClass=8;
+  case 1:
+  enemyActor.enemyArmorClass=8;
   break;
-  case '2':
-  enemyActor.ArmorClass=10;
+  case 2:
+  enemyActor.enemyArmorClass=10;
   break;
-  case '3':
-  enemyActor.ArmorClass=12;
+  case 3:
+  enemyActor.enemyArmorClass=12;
   break;
   default:
-  enemyActor.ArmorClass=8;
+  enemyActor.enemyArmorClass=8;
 }
   
-    //Roll Attack
-  	rollResult = rollDice(1,20);
+//Roll Attack
+rollResult = rollDice(1,20);
     
-    //Determine Result
+//Determine Result
 
-    //Crit
-	if (rollResult >= 19)
-	{
-	var attackDamage = diceRoll(6);
-  var criticalDamage = diceRoll(6);
-  damageResult = attackdamage+=criticalDamage;
-	enemyActor.Health = enemyHealth - damageResult;
-    	if (enemyHealth <= 0){enemyHealth = 0}
-		else {}   
-  	hitResult=" Critical!!! ";
-	}
+//Crit 
+if (rollResult >= 19){
+var attackDamage = diceRoll(6);
+var criticalDamage = diceRoll(6);
+damageResult = attackdamage+=criticalDamage;
+Enemy.enemyHealth = Enemy.enemyHealth - damageResult;
+if (Enemy.enemyHealth <= 0){Enemy.enemyHealth = 0}
+hitResult=" Critical!!! ";
+}
     
-    //Hit
-	else if (rollResult >= enemyActor.ArmorClass){	
-	var attackDamage = diceRoll(6);
-	enemyHealth = enemyHealth - attackDamage;
-		if (enemyHealth <= 0){enemyHealth = 0}
-		else {}        
-    hitResult=" Hit! ";
-	}
+//Hit
+else if (rollResult >= enemyActor.enemyArmorClass){	
+var damageResult = diceRoll(6);
+Enemy.enemyHealth = Enemy.enemyHealth - damageResult;
+if (Enemy.enemyHealth <= 0){Enemy.enemyHealth = 0}
+else {}        
+hitResult=" Hit! ";
+}
 
-    //Miss
-    else{
-	var attackDamage = 0    
-    hitResult=" Miss. "
-	}
+//Miss
+else{
+var damageResult = 0    
+hitResult=" Miss. "
+}
   
-    //Show Result in Combat Log
+//Show Result in Combat Log
 document.getElementById("combatLogText").innerHTML = rollResult+hitResult+damageResult+" Damage!";
   
-  //Check if Enemy is Dead
-  if (enemyHealth <= 0){window.alert("you WIN!!")}
-}
+//Check if Enemy is Dead
+if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 }
 </script>
 
@@ -353,12 +348,13 @@ document.getElementById("combatLogText").innerHTML = rollResult+hitResult+damage
     <option value="dodgeDefense">Dodge</option>
 </select>
 
-<!--Attack Button-->
-<button onclick=attackTarget(0)>Attack!</button>
+<!--Attack Buttons-->
+<button onclick=attackTarget(1)>Attack1!</button>
+<button onclick=attackTarget(2)>Attack2!</button>
+<button onclick=attackTarget(3)>Attack3!</button>
 
 <!--Berry Button-->
-<button onclick=>
-Eat Berry</button>
+<button onclick=eatBerry()>Eat Berry</button>
 </div>
 
 <!--Player HUD-->
