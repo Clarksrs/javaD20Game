@@ -244,15 +244,9 @@ function attackTarget(targetIndex){
 
     //set current target
 	var enemyIndex = targetIndex;
-	    
-    //get target Armor Class
-	if (currentEnemy=="zombieEnemy"){var armorClass=6;}
-	else if (currentEnemy=="gnollEnemy"){var armorClass=11}
-	else if (currentEnemy=="banditEnemy"){var armorClass=15}
-	else if (currentEnemy=="trollEnemy"){var armorClass=13}
   
     //Roll Attack
-  	var rollResult = rollDice(20);
+  	rollResult = rollDice(20);
     
     //Determine Result
 
@@ -260,11 +254,12 @@ function attackTarget(targetIndex){
 	if (rollResult >= 19)
 	{
 	var attackDamage = diceRoll(6);
-    var criticalDamage = diceRoll(6);  
-	enemyHealth = enemyHealth - (attackDamage + criticalDamage);
+  var criticalDamage = diceRoll(6);
+  damageResult = attackdamage++criticalDamage;
+	enemyHealth = enemyHealth - damageResult;
     	if (enemyHealth <= 0){enemyHealth = 0}
 		else {}   
-  	hitResult="Critical!!! ";
+  	hitResult=" Critical!!! ";
 	}
     
     //Hit
@@ -273,17 +268,17 @@ function attackTarget(targetIndex){
 	enemyHealth = enemyHealth - attackDamage;
 		if (enemyHealth <= 0){enemyHealth = 0}
 		else {}        
-    hitResult="Hit! ";
+    hitResult=" Hit! ";
 	}
 
     //Miss
     else{
 	var attackDamage = 0    
-    hitResult="Miss. "
+    hitResult=" Miss. "
 	}
   
     //Show Result in Combat Log
-  return rollResult + " " + hitResult + (+attackDamage + +criticaldamage) + " Damage!"
+  return rollResult + hitResult + damageResult + " Damage!"
   
   //Check if Enemy is Dead
   if (enemyHealth <= 0){window.alert("you WIN!!")}
@@ -340,7 +335,7 @@ function attackTarget(targetIndex){
 </select>
 
 <!--Attack Button-->
-<button onclick="attackMonster(0)">Attack!</button>
+<button onclick=attackTarget(0)>Attack!</button>
 
 <!--Berry Button-->
 <button onclick=>
