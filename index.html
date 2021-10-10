@@ -191,14 +191,19 @@ var btn = document.getElementById("aboutLink");
 var span = document.getElementsByClassName("close")[0];
 
 // Game Variables
+const Player={
+  Name:playerName,
+  Health:20,
+  MaxHealth:20,
+  Berries:5,
+};
+const Enemy={
+  Name:enemyName,
+  Health:20,
+  MaxHealth:20,
+  ArmorClass:10,
+}
 var rollResult;
-var playerHealth = 20;
-let playerMaxHealth = 20;
-var playerBerries = 5;
-var enemyHealth = 20;
-let enemyMaxHealth = 20;
-var enemyArmor;
-var currentEnemy;
 var playerHealthText = "Player Health = " + "playerHealth";
 var enemyHealthText = "Enemy Health = " + "enemyHealth";
 
@@ -242,23 +247,20 @@ function eatBerry(){
     else {}
   
 //Attack
-function attackTarget(targetName){
-
-    //set current target
-	var targetIndex = targetName;
+function attackTarget(targetIndex){
 
 switch (targetIndex) {
-  case 'zombieEnemy':
-    enemyArmor=8
-    break;
-  case 'GNollEnemy':
-    enemyArmor=10;
+  case '1':
+  enemyActor.ArmorClass=8;
   break;
-  case 'TrollEnemy':
-    enemyArmor=12;
-    break;
+  case '2':
+  enemyActor.ArmorClass=10;
+  break;
+  case '3':
+  enemyActor.ArmorClass=12;
+  break;
   default:
-  enemyArmor=8;
+  enemyActor.ArmorClass=8;
 }
   
     //Roll Attack
