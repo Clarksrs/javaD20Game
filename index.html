@@ -192,16 +192,16 @@ var span = document.getElementsByClassName("close")[0];
 
 // Game Variables
 const Player={
-  Name:playerName,
-  Health:20,
-  MaxHealth:20,
-  Berries:5,
+  playerName:playerName,
+  playerHealth:20,
+  playerMaxHealth:20,
+  playerInventory: {Berries:5}
 };
 const Enemy={
-  Name:enemyName,
-  Health:20,
-  MaxHealth:20,
-  ArmorClass:10,
+  enemyName:enemyName,
+  enemyHealth:20,
+  enemyMaxHealth:20,
+  enemyArmorClass:10,
 }
 var rollResult;
 var playerHealthText = "Player Health = " + "playerHealth";
@@ -274,14 +274,14 @@ switch (targetIndex) {
 	var attackDamage = diceRoll(6);
   var criticalDamage = diceRoll(6);
   damageResult = attackdamage+=criticalDamage;
-	enemyHealth = enemyHealth - damageResult;
+	enemyActor.Health = enemyHealth - damageResult;
     	if (enemyHealth <= 0){enemyHealth = 0}
 		else {}   
   	hitResult=" Critical!!! ";
 	}
     
     //Hit
-	else if (rollResult >= enemyArmor){	
+	else if (rollResult >= enemyActor.ArmorClass){	
 	var attackDamage = diceRoll(6);
 	enemyHealth = enemyHealth - attackDamage;
 		if (enemyHealth <= 0){enemyHealth = 0}
