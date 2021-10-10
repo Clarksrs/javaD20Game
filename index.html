@@ -191,12 +191,13 @@ var btn = document.getElementById("aboutLink");
 var span = document.getElementsByClassName("close")[0];
 
 // Game Variables
-var rollResult = 1;
+var rollResult;
 var playerHealth = 20;
 let playerMaxHealth = 20;
 var playerBerries = 5;
 var enemyHealth = 20;
 let enemyMaxHealth = 20;
+var enemyArmor;
 var currentEnemy;
 var playerHealthText = "Player Health = " + "playerHealth";
 var enemyHealthText = "Enemy Health = " + "enemyHealth";
@@ -225,8 +226,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 
-//Roll Dice
-function rollDice(max){rollResult = 1 + Math.floor(Math.random()*max)}
+function rollDice(min, max) {
+return min + Math.floor(Math.random() * (max-min + 1))
+}
 
 //Eat Berry
 function eatBerry(){
@@ -240,13 +242,27 @@ function eatBerry(){
     else {}
   
 //Attack
-function attackTarget(targetIndex){
+function attackTarget(targetName){
 
     //set current target
-	var enemyIndex = targetIndex;
+	var targetIndex = targetName;
+
+switch (targetIndex) {
+  case 'zombieEnemy':
+    enemyArmor=8
+    break;
+  case 'GNollEnemy':
+    enemyArmor=10;
+  break;
+  case 'TrollEnemy':
+    enemyArmor=12;
+    break;
+  default:
+  enemyArmor=8;
+}
   
     //Roll Attack
-  	rollResult = rollDice(20);
+  	rollResult = rollDice(1,20);
     
     //Determine Result
 
@@ -255,7 +271,7 @@ function attackTarget(targetIndex){
 	{
 	var attackDamage = diceRoll(6);
   var criticalDamage = diceRoll(6);
-  damageResult = attackdamage++criticalDamage;
+  damageResult = attackdamage+=criticalDamage;
 	enemyHealth = enemyHealth - damageResult;
     	if (enemyHealth <= 0){enemyHealth = 0}
 		else {}   
@@ -263,7 +279,7 @@ function attackTarget(targetIndex){
 	}
     
     //Hit
-	else if (rollResult >= armorClass){	
+	else if (rollResult >= enemyArmor){	
 	var attackDamage = diceRoll(6);
 	enemyHealth = enemyHealth - attackDamage;
 		if (enemyHealth <= 0){enemyHealth = 0}
@@ -278,11 +294,12 @@ function attackTarget(targetIndex){
 	}
   
     //Show Result in Combat Log
-  return rollResult + hitResult + damageResult + " Damage!"
+document.getElementById("combatLogText").innerHTML = rollResult+hitResult+damageResult+" Damage!";
   
   //Check if Enemy is Dead
   if (enemyHealth <= 0){window.alert("you WIN!!")}
-} 
+}
+}
 </script>
 
 </head>
@@ -352,7 +369,7 @@ Eat Berry</button>
 <!--Combat Log-->
 <div id="combatLog">
 <h3>Combat Log<h3>
-<p id="attackResultText">0</p>
+<p id="combatLogText">0</p>
 </div>
 
 </body>
