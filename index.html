@@ -191,20 +191,23 @@ var btn = document.getElementById("aboutLink");
 var span = document.getElementsByClassName("close")[0];
 
 // Game Variables
-const Player={
-  playerName:playerName,
-  playerHealth:20,
-  playerMaxHealth:20,
-  playerInventory: {Berries:5}
+
+//Objects
+const playerActor={
+  playerName      : "playerName",
+  playerHealth    : 20,
+  playerMaxHealth : 20,
+  playerInventory : {Berries:5}
 }
 
-const Enemy={
-  enemyName:enemyName,
-  enemyyHealth:20,
-  enemyMaxHealth:20,
-  enemyArmorClass:10,
+const enemyActor={
+  enemyName       : "enemyName",
+  enemyyHealth    : 20,
+  enemyMaxHealth  : 20,
+  enemyArmorClass : 10,
 }
 
+//Other Variables
 var rollResult;
 var playerHealthText = "Player Health = " + "Player.playerHealth";
 var enemyHealthText = "Enemy Health = " + "Enemy.enemyHealth";
@@ -292,7 +295,7 @@ hitResult=" Miss. "
 }
   
 //Show Result in Combat Log
-document.getElementById("combatLogText").innerHTML = rollResult+hitResult+damageResult+" Damage!";
+document.getElementById("combatLogText").innerHTML = rollResult;
   
 //Check if Enemy is Dead
 if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
