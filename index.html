@@ -44,7 +44,8 @@ li a:active {
 IMG.monsterImage {
     display: block;
     margin-left: auto;
-    margin-right: auto }
+    margin-right: auto 
+  }
 
 div.centered{
     margin-left: auto;
@@ -190,8 +191,9 @@ var btn = document.getElementById("aboutLink");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// Game Variables
 
+
+// Game Variables
 //Objects
 const playerActor={
   playerName      : "playerName",
@@ -209,8 +211,10 @@ const enemyActor={
 
 //Other Variables
 var rollResult;
-var playerHealthText = "Player Health = " + "Player.playerHealth";
-var enemyHealthText = "Enemy Health = " + "Enemy.enemyHealth";
+var hitResult=" Miss. ";
+var damageResult;
+var playerHealthText = "Player Health = " + "playerActor.playerHealth";
+var enemyHealthText = "Enemy Health = " + "enemyActor.enemyHealth";
 
 
 
@@ -219,38 +223,16 @@ var enemyHealthText = "Enemy Health = " + "Enemy.enemyHealth";
 //New Game
 function newGame(){window.alert("Welcome!")}
 
-//About Window
-// When the user clicks the button, open the modal 
-function aboutWindow(){modal.style.display = "block"}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {modal.style.display = "none"}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-
 //diceRoll
 function rollDice(min, max) {
 return min + Math.floor(Math.random() * (max-min + 1))
-}
-
-//Eat Berry
-function eatBerry(){
-	if(playerBerries >= 1){
-    	if(playerHealth <= 19){
-            playerHealth = playerHealth + diceRoll(10);
-            playerBerries = playerBerries - 1;
-        }
-    }
-  
+} 
   
 //Attack
 function attackTarget(targetIndex){
 
-switch (targetIndex) {
+  switch (targetIndex)
+{
   case 1:
   enemyActor.enemyArmorClass=8;
   break;
@@ -260,8 +242,6 @@ switch (targetIndex) {
   case 3:
   enemyActor.enemyArmorClass=12;
   break;
-  default:
-  enemyActor.enemyArmorClass=8;
 }
   
 //Roll Attack
@@ -271,19 +251,19 @@ rollResult = rollDice(1,20);
 
 //Crit 
 if (rollResult >= 19){
-var attackDamage = diceRoll(6);
-var criticalDamage = diceRoll(6);
-damageResult = attackdamage+=criticalDamage;
-Enemy.enemyHealth = Enemy.enemyHealth - damageResult;
-if (Enemy.enemyHealth <= 0){Enemy.enemyHealth = 0}
+var attackDamage = rollDice(1,6);
+var criticalDamage = rollDice(1,6);
+damageResult = var attackDamage += var criticalDamage;
+enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
+if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0}
 hitResult=" Critical!!! ";
 }
     
 //Hit
 else if (rollResult >= enemyActor.enemyArmorClass){	
-var damageResult = diceRoll(6);
-Enemy.enemyHealth = Enemy.enemyHealth - damageResult;
-if (Enemy.enemyHealth <= 0){Enemy.enemyHealth = 0}
+var damageResult = rollDice(1,6);
+enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
+if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0}
 else {}        
 hitResult=" Hit! ";
 }
