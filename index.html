@@ -10,7 +10,7 @@ ul {
   padding: 0;
   overflow: hidden;
   border: 1px solid #e7e7e7;
-  background-color: #f3f3f3;
+  background-color: #1b1b1b;
 }
 
 p.healthDisplay {
@@ -22,11 +22,12 @@ li {
   min-height : 45px;
   vertical-align : middle;
   border-bottom : 1px black solid;
+  color:blanchedalmond;
 }
 
 li a {
   display: block;
-  color: #666;
+  color: rgb(194, 194, 194);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -34,11 +35,13 @@ li a {
 
 li a:hover:not(.active) {
   background-color: #ddd;
+  color: rgb(194, 194, 194);
 }
 
 li a:active {
   color: white;
   background-color: #4CAF50; /* Green */
+  color: rgb(0, 0, 0);
 }
 
 IMG.enemyImage {
@@ -52,6 +55,10 @@ div.centered{
     margin-right: auto;
     }
     
+div.mainMenu{
+    background-color: rgb(22, 22, 22);
+    }
+
 button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -146,19 +153,6 @@ body{
 <!--Js-->
 <script>
 // Initialize Variables
-
-//UI Variables
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("aboutLink");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-
-
 // Game Variables
 //Objects
 const playerActor={
@@ -179,12 +173,6 @@ const enemyActor={
 var rollResult;
 var hitResult=" Miss. ";
 var damageResult;
-
-let playerHealthText = "Player Health = " + "playerActor.playerHealth";
-let enemyHealthText = "Enemy Health = " + "enemyActor.enemyHealth";
-
-
-
 
 //Functions
 //New Game
@@ -250,6 +238,8 @@ if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 
 function eatBerry(){}
 
+function aboutWindow(){}
+
 </script>
 
 </head>
@@ -262,8 +252,8 @@ function eatBerry(){}
 <div class="mainMenu">
 <ul>
   <li style="color:white;font-size:36px;font-family:Luminari">d20 ADVENTURE!</li>
-  <li><a id="newGameLink" href="javascript:newGame()">NEW GAME</a></li>
-  <li><a id="aboutLink" href="javascript:aboutWindow()">ABOUT</a></li>
+  <li><a id="newGameLink" onclick="javascript:newGame()">NEW GAME</a></li>
+  <li><a id="aboutLink" onclick="javascript:aboutWindow()">ABOUT</a></li>
 </ul>
 </div>
 
@@ -291,7 +281,7 @@ function eatBerry(){}
   </tr>
 
 <tr>
-  <td colspan="2">
+  <td colspan="2" width=100%>
   <!--Combat Log-->
 <div class="combatLog">
   <h4>Combat Log<h4>
