@@ -247,17 +247,12 @@ document.getElementById("combatLogText").innerHTML = rollResult;
 //Check if Enemy is Dead
 if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 }
+
+function eatBerry(){}
+
 </script>
 
 </head>
-
-
-
-
-
-
-
-
 
 
 
@@ -311,12 +306,12 @@ if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 <div class=actionButtons>
 
   <!--Attack Buttons-->
-  <button onclick=attackTarget(1)>Attack1!</button>
-  <button onclick=attackTarget(2)>Attack2!</button>
-  <button onclick=attackTarget(3)>Attack3!</button>
+  <button onclick="javascript:attackTarget(1)">Attack1!</button>
+  <button onclick="javascript:attackTarget(2)">Attack2!</button>
+  <button onclick="javascript:attackTarget(3)">Attack3!</button>
   
   <!--Berry Button-->
-  <button onclick=eatBerry()>Eat Berry</button>
+  <button onclick="javascript:()>Eat Berry</button>
   </div>
 
 </body>
