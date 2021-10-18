@@ -316,42 +316,47 @@ if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 
 </div>
 
-<!--enemyHUD-->
-<div class="enemyHud" style="text-align:center">
-<img class="enemyImage" src=https://thumb.ac-illust.com/t/43/4389d079526188d84faa5940e910103b_t.jpeg>
-<p id="enemyHealthText">Enemy Health = 20</p>
-</div>
+
+<table>
+  <tr>
+<!--Player HUD-->
+<div id="playerHud">
+  <h3>Player Stats</h3>
+  <p id="playerHealthText">Health = 20</p>
+  <p id="berryAmountText">Berries = 5</p>
+  </div>
+</tr>
+<tr>  
+  <!--enemyHUD-->
+  <div class="enemyHud" style="text-align:center">
+    <img class="enemyImage" src=https://thumb.ac-illust.com/t/43/4389d079526188d84faa5940e910103b_t.jpeg>
+    <p id="enemyHealthText">Enemy Health = 20</p>
+    </div>
+  </tr>
+
+
+  <!--Combat Log-->
+<div id="combatLog">
+  <h3>Combat Log<h3>
+  <p id="combatLogText">0</p>
+  </div>
+</table>
+
+
+
 
 
 <!-- ActionButtons -->
 <div id=actionButtons>
-<label for="defenseType">Choose your defense:</label>
-<select name="defenseType" id="defenseType">
-    <option value="blockDefense">Block</option>
-    <option value="dodgeDefense">Dodge</option>
-</select>
 
-<!--Attack Buttons-->
-<button onclick=attackTarget(1)>Attack1!</button>
-<button onclick=attackTarget(2)>Attack2!</button>
-<button onclick=attackTarget(3)>Attack3!</button>
-
-<!--Berry Button-->
-<button onclick=eatBerry()>Eat Berry</button>
-</div>
-
-<!--Player HUD-->
-<div id="playerHud">
-<h3>Player Stats</h3>
-<p id="playerHealthText">Health = 20</p>
-<p id="berryAmountText">Berries = 5</p>
-</div>
-
-<!--Combat Log-->
-<div id="combatLog">
-<h3>Combat Log<h3>
-<p id="combatLogText">0</p>
-</div>
+  <!--Attack Buttons-->
+  <button onclick=attackTarget(1)>Attack1!</button>
+  <button onclick=attackTarget(2)>Attack2!</button>
+  <button onclick=attackTarget(3)>Attack3!</button>
+  
+  <!--Berry Button-->
+  <button onclick=eatBerry()>Eat Berry</button>
+  </div>
 
 </body>
 </html>
