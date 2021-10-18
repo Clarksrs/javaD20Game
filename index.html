@@ -98,7 +98,7 @@ background-color: black; /* Black */
   }
  
 div.actionButtons{
-background-color: f3f3f3; /* Grey */
+background-color: black;
   border: none;
   color: white;
   padding: 20px;
@@ -110,7 +110,7 @@ background-color: f3f3f3; /* Grey */
   }
   
 div.combatLog{
-background-color: f3f3f3; /* Grey */
+background-color: rgb(58, 58, 58);
   border: none;
   color: white;
   padding: 20px;
@@ -122,7 +122,7 @@ background-color: f3f3f3; /* Grey */
   }
   
 div.playerHud{
-background-color: f3f3f3; /* Grey */
+background-color: rgb(43, 43, 43);
   border: none;
   color: white;
   padding: 20px;
@@ -175,8 +175,9 @@ const enemyActor={
 var rollResult;
 var hitResult=" Miss. ";
 var damageResult;
-var playerHealthText = "Player Health = " + "playerActor.playerHealth";
-var enemyHealthText = "Enemy Health = " + "enemyActor.enemyHealth";
+
+let playerHealthText = "Player Health = " + "playerActor.playerHealth";
+let enemyHealthText = "Enemy Health = " + "enemyActor.enemyHealth";
 
 
 
