@@ -133,44 +133,6 @@ background-color: f3f3f3; /* Grey */
   width: 50%;
   }
 
-  /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 </style>
 
 
@@ -297,7 +259,7 @@ if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 <body>
 
 <!--Menu-->
-<div id="mainMenu">
+<div class="mainMenu">
 <ul>
   <li style="color:white;font-size:36px;font-family:Luminari">d20 ADVENTURE!</li>
   <li><a id="newGameLink" href="javascript:newGame()">NEW GAME</a></li>
@@ -307,11 +269,11 @@ if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 
 <img class="enemyImage" src=https://thumb.ac-illust.com/t/43/4389d079526188d84faa5940e910103b_t.jpeg>
 
-<table>
+<table width=100%>
   <tr>
     <td width=50% align=center>
 <!--Player HUD-->
-<div id="playerHud">
+<div class="playerHud">
   <h3>Player Stats</h3>
   <p id="playerHealthText">Health = 20</p>
   <p id="berryAmountText">Berries = 5</p>
@@ -329,7 +291,7 @@ if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
   </tr>
 
   <!--Combat Log-->
-<div id="combatLog">
+<div class="combatLog">
   <h3>Combat Log<h3>
   <p id="combatLogText">0</p>
   </div>
@@ -340,7 +302,7 @@ if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
 
 
 <!-- ActionButtons -->
-<div id=actionButtons>
+<div class=actionButtons>
 
   <!--Attack Buttons-->
   <button onclick=attackTarget(1)>Attack1!</button>
