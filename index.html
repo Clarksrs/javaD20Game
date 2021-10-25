@@ -201,7 +201,7 @@ var attackDamage = rollDice(1,6);
 var criticalDamage = rollDice(1,6);
 damageResult = attackDamage += criticalDamage;
 enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
-if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0}
+if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0};
 hitResult=" Critical!!! ";
 }
     
@@ -209,23 +209,22 @@ hitResult=" Critical!!! ";
 else if (rollResult >= enemyActor.enemyArmorClass){	
 var damageResult = rollDice(1,6);
 enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
-if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0}
-else {}        
+if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0};
 hitResult=" Hit! ";
 }
 
 //Miss
 else{
-var damageResult = 0    
-hitResult=" Miss. "
+var damageResult = 0;
+hitResult=" Miss. ";
 }
   
 //Show Result in Combat Log
-document.getElementById("combatLogText").innerHTML = rollResult+" vs "+enemyActor.enemyArmorClass+hitResult+damageResult+" Damage!"
+document.getElementById("combatLogText").innerHTML = rollResult+" vs "+enemyActor.enemyArmorClass+hitResult+damageResult+" Damage!";
 document.getElementById("enemyHealthText").innerHTML ="Enemy Health = "+enemyActor.enemyyHealth;
   
 //Check if Enemy is Dead
-if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
+if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")};
 }
 
 function eatBerry(){}
