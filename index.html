@@ -153,7 +153,7 @@ var playerActor={
 
 var enemyActor={
   enemyName       : "enemyName",
-  enemyyHealth    : 20,
+  enemyHealth    : 20,
   enemyMaxHealth  : 20,
   enemyArmorClass : 10,
 }
@@ -221,7 +221,7 @@ hitResult=" Miss. ";
   
 //Show Result in Combat Log
 document.getElementById("combatLogText").innerHTML = rollResult+" vs "+enemyActor.enemyArmorClass+hitResult+damageResult+" Damage!";
-document.getElementById("enemyHealthText").innerHTML ="Enemy Health = "+enemyActor.enemyyHealth;
+document.getElementById("enemyHealthText").innerHTML ="Enemy Health = "+enemyActor.enemyHealth;
   
 //Check if Enemy is Dead
 if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")};
