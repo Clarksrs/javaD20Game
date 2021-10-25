@@ -23,6 +23,7 @@ li {
   vertical-align : middle;
   border-bottom : 1px black solid;
   color:blanchedalmond;
+  padding: 12px;
 }
 
 li a {
@@ -92,16 +93,16 @@ button:active{
   font-size: 16px;
   }
   
-div.enemyHud{
+div.infoHud{
 background-color: rgb(43, 43, 43);
   border: none;
   color: white;
-  padding: 20px, 0px;
+  padding: 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  width: 100%;
+  width: 90%;
   }
  
 div.actionButtons{
@@ -126,18 +127,6 @@ background-color: rgb(58, 58, 58);
   display: inline-block;
   font-size: 20px;
   width: 100%;
-  }
-  
-div.playerHud{
-background-color: rgb(43, 43, 43);
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  width: 50%;
   }
 
 body{
@@ -176,7 +165,9 @@ var damageResult;
 
 //Functions
 //New Game
-function newGame(){window.alert("Welcome!")}
+function newGame(){}
+
+function aboutWindow(){window.alert("About the Game!")}
 
 //diceRoll
 function rollDice(min, max) {
@@ -208,7 +199,7 @@ rollResult = rollDice(1,20);
 if (rollResult >= 19){
 var attackDamage = rollDice(1,6);
 var criticalDamage = rollDice(1,6);
-damageResult = var attackDamage += var criticalDamage;
+damageResult = attackDamage += criticalDamage;
 enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
 if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0}
 hitResult=" Critical!!! ";
@@ -230,7 +221,8 @@ hitResult=" Miss. "
 }
   
 //Show Result in Combat Log
-document.getElementById("combatLogText").innerHTML = rollResult;
+document.getElementById("combatLogText").innerHTML = rollResult+" vs "+enemyActor.enemyArmorClass+hitResult+damageResult+" Damage!"
+document.getElementById("enemyHealthText").innerHTML ="Enemy Health = "+enemyActor.enemyyHealth;
   
 //Check if Enemy is Dead
 if (Enemy.enemyHealth <= 0){window.alert("you WIN!!")}
@@ -263,7 +255,7 @@ function aboutWindow(){}
   <tr>
     <td width=50% align=center>
 <!--Player HUD-->
-<div class="playerHud">
+<div class="infoHud">
   <h4>Player Stats</h4>
   <p id="playerHealthText">Health = 20</p>
   <p id="playerInventory">Berries = 5</p>
@@ -273,7 +265,7 @@ function aboutWindow(){}
 
 <td width=50% align=center>  
   <!--enemyHUD-->
-  <div class="enemyHud">
+  <div class="infoHud">
     <h3>Enemy Stats</h3>
     <p id="enemyHealthText">Enemy Health = 20</p>
     </div>
