@@ -207,7 +207,7 @@ hitResult=" Critical!!! ";
     
 //Hit
 else if (rollResult >= enemyActor.enemyArmorClass){	
-var damageResult = rollDice(1,6);
+damageResult = rollDice(1,6);
 enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
 if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0};
 hitResult=" Hit! ";
@@ -215,7 +215,7 @@ hitResult=" Hit! ";
 
 //Miss
 else{
-var damageResult = 0;
+damageResult = 0;
 hitResult=" Miss. ";
 }
   
