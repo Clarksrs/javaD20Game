@@ -147,14 +147,14 @@ body{
 // Initialize Variables
 // Game Variables
 //Objects
-var playerActor={
+const playerActor={
   playerName      : "playerName",
   playerHealth    : 20,
   playerMaxHealth : 20,
-  playerInventory : {Berries:5, Sword,}
+  playerInventory : {Berries:5,}
 }
 
-var enemyActor={
+const enemyActor={
   enemyName       : "enemyName",
   enemyHealth     : 20,
   enemyMaxHealth  : 20,
@@ -204,7 +204,6 @@ var attackDamage = rollDice(1,6);
 var criticalDamage = rollDice(1,6);
 damageResult = attackDamage += criticalDamage;
 enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
-if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0};
 hitResult=" Critical!!! ";
 }
     
@@ -212,7 +211,6 @@ hitResult=" Critical!!! ";
 else if (rollResult >= enemyActor.enemyArmorClass){	
 damageResult = rollDice(1,6);
 enemyActor.enemyHealth = enemyActor.enemyHealth - damageResult;
-if (enemyActor.enemyHealth <= 0){enemyActor.enemyHealth = 0};
 hitResult=" Hit! ";
 }
 
@@ -227,7 +225,7 @@ document.getElementById("combatLogText").innerHTML = rollResult+" vs "+enemyActo
 document.getElementById("enemyHealthText").innerHTML ="Enemy Health = "+enemyActor.enemyHealth;
   
 //Check if Enemy is Dead
-if (enemyActor.enemyHealth = 0){window.alert("you WIN!!")};
+if (enemyActor.enemyHealth <= 0){window.alert("you WIN!!")};
 }
 
 function eatBerry(){}
