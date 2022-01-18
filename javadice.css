@@ -14,6 +14,7 @@
 
 #lowerbody li{
     padding:.5em;
+    justify-content: center;
 }
 
 /*
@@ -25,13 +26,24 @@ h1{
     font-size: 3rem;
 }
 
+h2{
+    font-size: 2rem;
+    padding: 0 3em;
+}
+
+p{
+    text-align: center;
+}
+
 /*
 Images
 */
 
 img{
+    display:block;
     margin:0 auto;
     max-height:25rem;
+    border: 2px solid red;
 }
 
 /* Extra large devices (large desktops, 1920px and up)*/
@@ -44,6 +56,6 @@ img{
 
     #lowerBody{
         display:flex;
-        justify-content: space-between;
+        justify-content:center;
     }
 }
